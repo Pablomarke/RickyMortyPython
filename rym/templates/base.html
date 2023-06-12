@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <!-- Encabezado -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>{{title}}</title>
+       
+        <html data-theme="light"></html>
+    </head>
+
+    <!-- Barra de menú -->
+    <body>
+        <header>
+            <div class="container-fluid">
+                <strong>{title}</strong>
+                <nav aria-label="breadcrumb">
+                    <ul>
+                        {% if title == "Inicio" %}
+                        <li><u class="secondary">Inicio </u> </li>
+                        {% else %}
+                        <li><a href="/" >Inicio</a></li>
+                        {% endif %}
+
+                    
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+    <!-- Cuerpo -->
+        <!-- Mostrar errores al usuario -->
+        <section class="container-fluid">
+            <br>
+            <h2>{{title}}</h2>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <h3><ul class=flashes></h3>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            <br>
+            {% endif %}
+            {% endwith %}
+            {% block section %}
+            {% endblock %}
+        </section> 
+
+        <!-- Pie de página -->
+        <footer>
+            <div class="container-fluid">
+                &copy; 2023- Pablo Márquez &#174 
+                
+            </div>
+        </footer>
+    </body>
+</html>

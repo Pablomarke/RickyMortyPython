@@ -2,6 +2,7 @@ from rym import app
 from flask import render_template
 
 @app.route("/")
-def hello_world():
+def index():
     
-    return render_template("index.html")
+    return render_template("index.html", 
+                           title="Inicio")
