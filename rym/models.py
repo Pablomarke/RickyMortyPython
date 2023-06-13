@@ -10,8 +10,18 @@ class RyMAPI:
         response = requests.get(url)
         r = response.json()
         if response.status_code == 200:
-            print(r)
+            return r
         else:
             print("NO")
+
+    def allCharacters(self):
+        url = "https://rickandmortyapi.com/api/character"
+        response = requests.get(url)
+        r = response.json()
+        if response.status_code == 200:
+            return r
+        else:
+            print("NO")
+
 
 

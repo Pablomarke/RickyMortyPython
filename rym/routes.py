@@ -10,9 +10,16 @@ def index():
     return render_template("index.html", 
                            title="Inicio")
 
-@app.route("/character")
+@app.route("/characters")
 def character():
-    rm.oneCharacterById(2)
+    personaje = rm.allCharacters()
+    personajes = personaje["results"]
+    """nombre = personaje["name"]
+    estado = personaje["status"]
+    especie = personaje["species"]
+    genero = personaje["gender"]
+    datos = [nombre, estado, especie,genero]"""
 
-    return render_template("character.html",
-                           title="Personaje")
+    return render_template("characters.html",
+                           title="Listado de personajes",
+                           data= personajes)

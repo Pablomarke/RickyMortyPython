@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block section %}
+<table>
+<thead>
+    <tr>
+        <th scope=""> Nombre</th>
+        <th scope="col"> Estado</th>
+        <th scope="col"> Especie</th>
+        <th scope="col"> Genero</th>
+    </tr>
+</thead>
+<tbody>
+    {% for item in data %}
+    <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.status}}</td>
+        <td>{{item.species}}</td>
+        <td>{{item.gender}}</td>
+     
+    </tr>
+    {% endfor %}
+</tbody>
+
+</table>
+{% endblock %}
