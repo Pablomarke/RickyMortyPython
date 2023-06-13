@@ -21,6 +21,14 @@ def character():
                            title="Listado de personajes",
                            data= personajes)
 
+@app.route("/characterdetailed<int:id>")
+def characterdetail(id):
+    personaje = rm.oneCharacterById(id)
+    
+    return render_template("characterDetail.html",
+                           title="Detalle",
+                           data=personaje)
+
 @app.route("/locations")
 def location():
     localizaciones= rm.allLocations()

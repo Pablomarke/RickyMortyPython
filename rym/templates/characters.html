@@ -9,6 +9,7 @@
             <th scope="col"> Estado </th>
             <th scope="col"> Genero </th>
             <th scope="col"> Origen </th>
+            <th scope="col"> Acciones </th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
             <td>{{item.status}}</td>
             <td>{{item.gender}}</td>
             <td>{{item.origin.name}}</td>
+            <td><a  href="/characterdetailed{{item.id}}">Detalles</a> </td>
         
         </tr>
     {% endfor %}

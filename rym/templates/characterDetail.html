@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block section %}
+<article>
+    <header>{{data.name}}</header>
+    <img src="{{data.image}}" alt=""> 
+    {{data.species}} 
+    {{data.location.name}}
+    
+  </article>
+
+  <a href="/characters" role="button">Volver</a>
+{% endblock %}
