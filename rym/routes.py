@@ -23,10 +23,16 @@ def character():
 
 @app.route("/locations")
 def location():
+    localizaciones= rm.allLocations()
+    localizaciones = localizaciones["results"]
     return render_template("locations.html",
-                           title = "Localizaciones")
+                           title = "Localizaciones",
+                           data = localizaciones)
 
 @app.route("/episodes")
 def episode():
+    episodios = rm.allEpisodes()
+    episodios = episodios["results"]
     return render_template("episodes.html",
-                           title = "Episodios")
+                           title = "Episodios",
+                           data = episodios)
