@@ -8,9 +8,10 @@ rm = RyMAPI()
 @app.route("/")
 def index():
     random_number = random.randint(1,800)
-    
-    return render_template("index.html", 
-                           number=random_number)
+    data = rm.oneCharacterById(random_number)
+    return render_template("index.html",
+                           data= data 
+                           )
 
 @app.route("/characters")
 def character():

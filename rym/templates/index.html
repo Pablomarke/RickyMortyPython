@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
 {% block section %}
-<img src="https://rickandmortyapi.com/api/character/avatar/{{number}}.jpeg" alt="">
+<h3>Te proponemos a....</h3>
+<h4>{{data.name}}</h4>
+<img src="{{data.image}}" alt="">
+<br>
+<br>
+<a  href="/characterdetailed{{data.id}}">Concoe a {{data.name}}</a>
 {% endblock %}
