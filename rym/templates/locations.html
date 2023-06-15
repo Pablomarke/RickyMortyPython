@@ -9,6 +9,7 @@
         </tr>
     </thead>
     <tbody>
+    {% if data != None %}  
     {% for item in data %}
         <tr>
             <td>{{item.name}}</td>
@@ -16,6 +17,7 @@
             <td>{{item.dimension}}</td>
         </tr>
     {% endfor %}
+    {% endif %}
     </tbody>
 </table>
 <form action="" method="post">
