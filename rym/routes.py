@@ -1,9 +1,10 @@
 from rym import app
-from flask import render_template
+from flask import render_template, request
 from rym.models import RyMAPI
 import random
 
 rm = RyMAPI()
+
 
 @app.route("/")
 def index():
@@ -13,14 +14,29 @@ def index():
                            data= data 
                            )
 
-@app.route("/characters")
+# PERSONAJES
+@app.route("/characters", 
+           methods = ["GET", "POST"])
 def character():
-    personaje = rm.allCharacters()
-    personajes = personaje["results"]
-
-    return render_template("characters.html",
-                           title="Listado de personajes",
-                           data= personajes)
+    
+    if request.method == "GET":
+        personaje = rm.allCharacters()
+        personajes = personaje["results"]
+        
+        return render_template("characters.html",
+                            title="Listado de personajes",
+                            data= personajes)
+    
+    else: 
+        if request.form["Button"] == "pagina":
+            number = int(request.form["number"])
+            personajes = rm.charactersPage(number)
+            personajes = personajes["results"]
+            
+            return render_template("characters.html",
+                                title="Listado de personajes",
+                                data = personajes,
+                                number=number)
 
 @app.route("/characterdetailed<int:id>")
 def characterdetail(id):
@@ -30,18 +46,46 @@ def characterdetail(id):
                            title="Detalle",
                            data=personaje)
 
-@app.route("/locations")
+# LOCALIZACIONES
+@app.route("/locations", 
+           methods = ["GET", "POST"])
 def location():
-    localizaciones= rm.allLocations()
-    localizaciones = localizaciones["results"]
-    return render_template("locations.html",
-                           title = "Localizaciones",
-                           data = localizaciones)
+    if request.method == "GET":
+        localizaciones= rm.allLocations()
+        localizaciones = localizaciones["results"]
 
-@app.route("/episodes")
+        return render_template("locations.html",
+                            title = "Localizaciones",
+                            data = localizaciones)
+    else:
+         if request.form["Button"] == "pagina":
+            number = int(request.form["number"])
+            localizaciones= rm.locationPage(number)
+            localizaciones = localizaciones["results"]
+            
+            return render_template("locations.html",
+                                title="Localizaciones",
+                                data = localizaciones,
+                                number=number)
+
+#EPISODIOS
+@app.route("/episodes", 
+           methods = ["GET", "POST"])
 def episode():
-    episodios = rm.allEpisodes()
-    episodios = episodios["results"]
-    return render_template("episodes.html",
-                           title = "Episodios",
-                           data = episodios)
+    if request.method == "GET":
+        episodios = rm.allEpisodes()
+        episodios = episodios["results"]
+        return render_template("episodes.html",
+                            title = "Episodios",
+                            data = episodios)
+
+    else:
+         if request.form["Button"] == "pagina":
+            number = int(request.form["number"])
+            episodios = rm.episodesPage(number)
+            episodios = episodios["results"]
+            
+            return render_template("episodes.html",
+                                title="Episodios",
+                                data = episodios,
+                                number=number)
