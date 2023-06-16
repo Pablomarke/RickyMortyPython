@@ -1,0 +1,24 @@
+header,footer,body{
+    background-color: rgba(9, 206, 255, 0.766);
+    color: rgb(4, 108, 68);
+    font-size: 1.4em;
+    font-weight: 600;
+}
+h2{
+    font-weight: 900; 
+    color: rgb(220, 231, 17); 
+}
+article{
+    background-color: rgba(9, 206, 255, 0.766);
+    color: rgb(17, 231, 149);
+    font-size: 0,8em;
+    font-weight: 900;
+    background: rgba(9, 206, 255, 0.766);
+}
+
+table, td{
+    text-align: left;
+    border-collapse: collapse;
+    }  
+    tr:hover {background-color: #12b709;};
+

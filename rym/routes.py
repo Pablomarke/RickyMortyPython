@@ -132,7 +132,8 @@ def episode():
 def search():
     if request.method == "GET":
         return render_template("search.html",
-                            title = "Buscador")
+                            title = "Buscador"
+                            )
 
     else:
          if request.form["Button3"] == "submit":

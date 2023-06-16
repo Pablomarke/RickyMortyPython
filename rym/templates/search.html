@@ -5,7 +5,7 @@
     <button type="submit" name="Button3" value="submit">Buscar</button>
   
 </form >
-
+{% if data != None %} 
 <table>
     <thead>
         <tr>
@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-    {% if data != None %} 
+   
     {% for item in data %}
         <tr>
             <td><img src="{{item.image}}" alt="" width="80px"></td>
@@ -31,7 +31,8 @@
             <td><a  href="/characterdetailed{{item.id}}">Detalles</a> </td>
         </tr>
     {% endfor %}
-    {% endif %}
+    
     </tbody>
 </table>
+{% endif %}
 {% endblock %}

@@ -1,12 +1,36 @@
 {% extends 'base.html' %}
 {% block section %}
 <article>
-    <header>{{data.name}}</header>
-    <img src="{{data.image}}" alt=""> 
-    {{data.species}} 
-    {{data.location.name}}
-    
-  </article>
+  <img src="{{data.image}}" alt=""> 
+  <br>
+  <br>
+    <table>
+      <tbody>
+        <tr>
+          <th scope="row">Origen</th>
+          <td>{{data.location.name}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Especie</th>
+          <td>{{data.species}} </td>
+        </tr>
+        <tr>
+          <th scope="row">Estado</th>
+          <td>{{data.status}} </td>
+        </tr>
+        <tr>
+          <th scope="row">Género</th>
+          <td>{{data.gender}} </td>
+        </tr>
+        <tr>
+          <th scope="row">Tipo</th>
+          <td>{{data.type}} </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <a href="/search" role="button">Buscador de personajes</a>
+</article>
 
-  <a href="/characters" role="button">Volver</a>
+
 {% endblock %}
