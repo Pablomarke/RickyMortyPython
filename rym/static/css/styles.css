@@ -1,21 +1,31 @@
-header,footer,body{
+header,body{
     background-color: rgba(9, 206, 255, 0.766);
     color: rgb(4, 108, 68);
-    font-size: 1.4em;
+    font-size: 2em;
     font-weight: 600;
 }
+footer{
+    background-color: rgba(9, 206, 255, 0.766);
+    color: rgb(4, 108, 68);
+    font-size:large;
+    
+}
 h2{
-    font-weight: 900; 
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.8em;
     color: rgb(220, 231, 17); 
 }
 article{
     background-color: rgba(9, 206, 255, 0.766);
     color: rgb(17, 231, 149);
-    font-size: 0,8em;
+    font-size: 0.8em;
     font-weight: 900;
     background: rgba(9, 206, 255, 0.766);
 }
-
+button{
+    font-weight: 300;
+}
 table, td{
     text-align: left;
     border-collapse: collapse;

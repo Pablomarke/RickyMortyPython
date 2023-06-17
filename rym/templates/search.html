@@ -6,6 +6,7 @@
   
 </form >
 {% if data != None %} 
+{% if mostrar != "no"%}
 <table>
     <thead>
         <tr>
@@ -19,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-   
+   {% endif %}
     {% for item in data %}
         <tr>
             <td><img src="{{item.image}}" alt="" width="80px"></td>
