@@ -7,6 +7,7 @@ rm = RyMAPI()
 
 @app.route("/")
 def index():
+    # numero aleatorio para previsualizar un personaje en la pagina principal
     random_number = random.randint(1,800)
     try:
         data = rm.oneCharacterById(random_number)
@@ -21,6 +22,7 @@ def index():
 # PERSONAJES
 @app.route("/characters", 
            methods = ["GET", "POST"])
+
 def character():
     
     if request.method == "GET":
